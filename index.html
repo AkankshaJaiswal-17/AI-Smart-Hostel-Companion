@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Livora - Smarter Living, Better Connections</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+    <!-- ================= LOGIN ================= -->
+
+    <div id="login" class="auth-screen">
+
+        <div class="auth-box">
+
+            <div class="auth-brand">
+                <i class="fa-solid fa-leaf"></i>
+                <h1>Livora</h1>
+            </div>
+
+            <p class="auth-tagline">"Smarter Living, Better Connections"</p>
+
+            <label>Student Email</label>
+
+            <input
+                id="email"
+                type="email"
+                placeholder="Enter your email"
+            >
+
+            <label>Password</label>
+
+            <div class="password-field">
+
+                <input
+                    id="password"
+                    type="password"
+                    placeholder="Enter your password"
+                >
+
+                <button type="button" class="pw-toggle" onclick="togglePassword('password', this)">
+                    <i class="fa-solid fa-eye"></i>
+                </button>
+
+            </div>
+
+            <div class="forgot-row">
+
+                <button
+                    type="button"
+                    class="forgot-btn"
+                    onclick="forgotPassword()">
+
+                    Forgot Password?
+
+                </button>
+
+            </div>
+
+            <button
+                class="btn full"
+                onclick="login()">
+
+                Login
+
+            </button>
+
+            <p class="auth-switch">
+                Don't have an account?
+                <button type="button" class="link-btn" onclick="goToSignup()">Sign Up</button>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= SIGNUP ================= -->
+
+    <div id="signup" class="auth-screen" style="display:none;">
+
+        <div class="auth-box signup-box">
+
+            <div class="auth-brand">
+                <i class="fa-solid fa-leaf"></i>
+                <h1>Livora</h1>
+            </div>
+
+            <p class="auth-tagline">Register for your hostel account</p>
+
+            <form id="signupForm" onsubmit="submitSignup(event)">
+
+                <!-- A. Personal Details -->
+                <div class="form-section">
+
+                    <h3><i class="fa-solid fa-id-card"></i> Personal Details</h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Full Name</label>
+                            <input type="text" placeholder="Enter your full name" required>
+                        </div>
+
+                        <div class="field">
+                            <label>Mobile Number</label>
+                            <input type="tel" placeholder="10-digit mobile number" required>
+                        </div>
+
+                        <div class="field">
+                            <label>Date of Birth</label>
+                            <input type="date">
+                        </div>
+
+                        <div class="field">
+                            <label>Gender</label>
+                            <select>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                                <option>Prefer not to say</option>
+                            </select>
+                        </div>
+
+                        <div class="field">
+                            <label>Hometown</label>
+                            <input type="text" placeholder="City, State">
+                        </div>
+
+                        <div class="field">
+                            <label>Languages Known</label>
+                            <input type="text" placeholder="e.g. Hindi, English">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- B. Academic Details -->
+                <div class="form-section">
+
+                    <h3><i class="fa-solid fa-graduation-cap"></i> Academic Details</h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>College</label>
+                            <input type="text" placeholder="College name" required>
+                        </div>
+
+                        <div class="field">
+                            <label>Course</label>
+                            <input type="text" placeholder="e.g. B.Tech" required>
+                        </div>
+
+                        <div class="field">
+                            <label>Branch / Department</label>
+                            <input type="text" placeholder="e.g. Computer Science">
+                        </div>
+
+                        <div class="field">
+                            <label>Year / Semester</label>
+                            <input type="text" placeholder="e.g. 2nd Year / 3rd Sem">
+                        </div>
+
+                        <div class="field">
+                            <label>Admission / Roll Number</label>
+                            <input type="text" placeholder="Enter admission or roll number">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- C. Parent / Guardian Details -->
+                <div class="form-section">
+
+                    <h3><i class="fa-solid fa-people-roof"></i> Parent / Guardian Details</h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Father / Guardian Name</label>
+                            <input type="text" placeholder="Enter name">
+                        </div>
+
+                        <div class="field">
+                            <label>Father / Guardian Mobile</label>
+                            <input type="tel" placeholder="Mobile number">
+                        </div>
+
+                        <div class="field">
+                            <label>Mother Name</label>
+                            <input type="text" placeholder="Enter name">
+                        </div>
+
+                        <div class="field">
+                            <label>Mother Mobile Number</label>
+                            <input type="tel" placeholder="Mobile number">
+                        </div>
+
+                        <div class="field">
+                            <label>Emergency Contact</label>
+                            <input type="tel" placeholder="Emergency contact number">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- D. Hostel / Admission Details -->
+                <div class="form-section">
+
+                    <h3><i class="fa-solid fa-building-user"></i> Hostel / Admission Details</h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Hostel / Block</label>
+                            <input type="text" placeholder="If already assigned">
+                        </div>
+
+                        <div class="field">
+                            <label>Room Number</label>
+                            <input type="text" placeholder="If already assigned">
+                        </div>
+
+                        <div class="field">
+                            <label>Hostel Admission Info</label>
+                            <input type="text" placeholder="Admission reference (if any)">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- E. Account Details -->
+                <div class="form-section">
+
+                    <h3><i class="fa-solid fa-lock"></i> Account Details</h3>
+
+                    <div class="form-grid">
+
+                        <div class="field">
+                            <label>Email</label>
+                            <input type="email" placeholder="Enter your email" required>
+                        </div>
+
+                        <div class="field"></div>
+
+                        <div class="field">
+                            <label>Password</label>
+                            <div class="password-field">
+                                <input id="signupPassword" type="password" placeholder="Create password" required>
+                                <button type="button" class="pw-toggle" onclick="togglePassword('signupPassword', this)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="field">
+                            <label>Confirm Password</label>
+                            <div class="password-field">
+                                <input id="signupConfirmPassword" type="password" placeholder="Confirm password" required>
+                                <button type="button" class="pw-toggle" onclick="togglePassword('signupConfirmPassword', this)">
+                                    <i class="fa-solid fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <button type="submit" class="btn full">Create Account</button>
+
+            </form>
+
+            <p class="auth-switch">
+                Already have an account?
+                <button type="button" class="link-btn" onclick="goToLogin()">Login</button>
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= APPLICATION ================= -->
+
+    <div id="app" class="app">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <i class="fa-solid fa-leaf"></i>
+                <span>Livora</span>
+            </div>
+
+            <div class="nav">
+
+                <button class="active" onclick="showPage('dashboard', this)">
+                    <i class="fa-solid fa-gauge"></i>
+                    <span>Dashboard</span>
+                </button>
+
+                <button onclick="showPage('profile', this)">
+                    <i class="fa-solid fa-user"></i>
+                    <span>My Profile</span>
+                </button>
+
+                <button onclick="showPage('room', this)">
+                    <i class="fa-solid fa-bed"></i>
+                    <span>My Room</span>
+                </button>
+
+                <button onclick="showPage('compatibility', this)">
+                    <i class="fa-solid fa-people-arrows"></i>
+                    <span>Compatibility</span>
+                </button>
+
+                <button onclick="showPage('complaints', this)">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <span>Complaints</span>
+                </button>
+
+                <button onclick="showPage('visitors', this)">
+                    <i class="fa-solid fa-user-plus"></i>
+                    <span>Visitors</span>
+                </button>
+
+                <button onclick="showPage('mess', this)">
+                    <i class="fa-solid fa-utensils"></i>
+                    <span>Mess</span>
+                </button>
+
+                <button onclick="showPage('lostfound', this)">
+                    <i class="fa-solid fa-box-open"></i>
+                    <span>Lost &amp; Found</span>
+                </button>
+
+                <button onclick="showPage('notices', this)">
+                    <i class="fa-solid fa-bullhorn"></i>
+                    <span>Notices</span>
+                </button>
+
+                <button onclick="showPage('notifications', this)">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>Notifications</span>
+                    <span id="notifBadge" class="nav-badge">3</span>
+                </button>
+
+                <button onclick="showPage('settings', this)">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>Settings</span>
+                </button>
+
+            </div>
+
+            <button class="logout" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i>
+                <span>Logout</span>
+            </button>
+
+        </aside>
+
+
+        <!-- ================= MAIN ================= -->
+
+        <main class="main">
+
+            <header class="topbar">
+
+                <div class="topbar-left">
+                    <button class="mobile-menu-btn" onclick="toggleSidebar()">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                    <b id="title">Dashboard</b>
+                </div>
+
+                <div class="top-user">
+
+                    <button class="icon-btn" onclick="showPage('notifications')" title="Notifications">
+                        <i class="fa-solid fa-bell"></i>
+                    </button>
+
+                    <div class="avatar">AS</div>
+
+                    <span class="user-name">Aman Singh</span>
+
+                </div>
+
+            </header>
+
+
+            <div class="content">
+
+            <div class="content">
+
+
+                <!-- ================= DASHBOARD ================= -->
+
+                <section id="dashboard" class="page active">
+
+                    <div class="heading">
+                        <h2>Welcome, Aman</h2>
+                        <p>Smarter Living, Better Connections — here's your hostel snapshot.</p>
+                    </div>
+
+                    <div class="cards">
+
+                        <div class="card stat">
+                            <p><i class="fa-solid fa-bed"></i> Room Number</p>
+                            <strong>204</strong>
+                        </div>
+
+                        <div class="card stat">
+                            <p><i class="fa-solid fa-people-arrows"></i> Compatibility</p>
+                            <strong id="dashCompatibility">91%</strong>
+                        </div>
+
+                        <div class="card stat">
+                            <p><i class="fa-solid fa-clipboard-list"></i> Open Complaints</p>
+                            <strong id="complaintCount">1</strong>
+                        </div>
+
+                        <div class="card stat">
+                            <p><i class="fa-solid fa-user-plus"></i> Visitor Requests</p>
+                            <strong id="visitorPendingCount">1</strong>
+                        </div>
+
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-utensils"></i> Today's Mess</h3>
+                            <div class="mess-mini">
+                                <div><span>Breakfast</span><b>8:00 – 9:30 AM</b></div>
+                                <div><span>Lunch</span><b>12:30 – 2:00 PM</b></div>
+                                <div><span>Dinner</span><b>7:30 – 9:00 PM</b></div>
+                            </div>
+                            <button class="btn ghost" onclick="showPage('mess')">View Full Menu</button>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-bullhorn"></i> Recent Notices</h3>
+
+                            <div class="notice">
+                                <b>Room Inspection</b>
+                                <p>25 August, 10 AM</p>
+                            </div>
+
+                            <div class="notice">
+                                <b>Cleanliness Drive</b>
+                                <p>Sunday in Block A</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-bell"></i> Recent Notifications</h3>
+
+                            <div class="notif-mini" onclick="showPage('notifications')">
+                                <i class="fa-solid fa-user-plus notif-icon visitor"></i>
+                                <div>
+                                    <b>New Visitor Request</b>
+                                    <p>Raj Singh is waiting at the gate</p>
+                                </div>
+                            </div>
+
+                            <div class="notif-mini" onclick="showPage('notifications')">
+                                <i class="fa-solid fa-clipboard-list notif-icon complaint"></i>
+                                <div>
+                                    <b>Complaint Updated</b>
+                                    <p>Bathroom cleaning is now In Progress</p>
+                                </div>
+                            </div>
+
+                            <button class="btn ghost" onclick="showPage('notifications')">View All</button>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-box-open"></i> Lost &amp; Found</h3>
+                            <p class="small-text">A possible match was found for a lost item near Block A.</p>
+                            <button class="btn ghost" onclick="showPage('lostfound')">Open Lost &amp; Found</button>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <h3>Quick Actions</h3>
+                        <div class="actions">
+                            <button onclick="openComplaint()"><i class="fa-solid fa-clipboard-list"></i> New Complaint</button>
+                            <button onclick="openVisitor()"><i class="fa-solid fa-user-plus"></i> Add Visitor</button>
+                            <button onclick="showPage('notifications')"><i class="fa-solid fa-bell"></i> View Notifications</button>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!-- ================= MY PROFILE ================= -->
+
+                <section id="profile" class="page">
+
+                    <div class="heading heading-flex">
+                        <div>
+                            <h2>My Profile</h2>
+                            <p>Your personal, academic and hostel information.</p>
+                        </div>
+                        <button class="btn" onclick="openEdit()">
+                            <i class="fa-solid fa-pen"></i> Edit Profile
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <div class="profile">
+                            <div class="big-avatar">AS</div>
+                            <div>
+                                <h3>Aman Singh</h3>
+                                <p>CSE • 2nd Year</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-id-card"></i> Personal Information</h3>
+                            <div class="info">
+                                <div><span>Full Name</span><b>Aman Singh</b></div>
+                                <div><span>Mobile Number</span><b>+91 98XXXXXX21</b></div>
+                                <div><span>Email</span><b>aman@example.com</b></div>
+                                <div><span>Date of Birth</span><b>14 Mar 2004</b></div>
+                                <div><span>Gender</span><b>Male</b></div>
+                                <div><span>Hometown</span><b>Lucknow, UP</b></div>
+                                <div><span>Languages Known</span><b>Hindi, English</b></div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-graduation-cap"></i> Academic Information</h3>
+                            <div class="info">
+                                <div><span>College</span><b>ABC Institute of Technology</b></div>
+                                <div><span>Course</span><b>B.Tech</b></div>
+                                <div><span>Branch / Department</span><b>Computer Science</b></div>
+                                <div><span>Year / Semester</span><b>2nd Year / 3rd Sem</b></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-people-roof"></i> Parent / Guardian Information</h3>
+                            <div class="info">
+                                <div><span>Father / Guardian Name</span><b>Rajesh Singh</b></div>
+                                <div><span>Father / Guardian Mobile</span><b>+91 98XXXXXX01</b></div>
+                                <div><span>Mother Name</span><b>Sunita Singh</b></div>
+                                <div><span>Mother Mobile</span><b>+91 98XXXXXX02</b></div>
+                                <div><span>Emergency Contact</span><b>+91 98XXXXXX01</b></div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-building-user"></i> Hostel Information</h3>
+                            <div class="info">
+                                <div><span>Hostel / Block</span><b>Block A</b></div>
+                                <div><span>Room Number</span><b>204</b></div>
+                                <div><span>Floor</span><b>2nd Floor</b></div>
+                                <div><span>Room Type</span><b>Triple Sharing</b></div>
+                                <div><span>Allocation Status</span><b class="status green">Confirmed</b></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= MY ROOM ================= -->
+
+                <section id="room" class="page">
+
+                    <div class="heading">
+                        <h2>My Room</h2>
+                        <p>Your space, your stay.</p>
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-door-open"></i> Room 204</h3>
+                            <div class="info">
+                                <div><span>Hostel / Block</span><b>A</b></div>
+                                <div><span>Floor</span><b>2nd Floor</b></div>
+                                <div><span>Room Type</span><b>Triple Sharing</b></div>
+                                <div><span>Status</span><b class="status green">Occupied</b></div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-users"></i> Roommates</h3>
+
+                            <div class="profile roommate-row">
+                                <div class="big-avatar">RK</div>
+                                <div>
+                                    <b>Rahul Kumar</b>
+                                    <p>CSE • 2nd Year</p>
+                                </div>
+                            </div>
+
+                            <div class="profile roommate-row">
+                                <div class="big-avatar">VS</div>
+                                <div>
+                                    <b>Vikram Sharma</b>
+                                    <p>ECE • 2nd Year</p>
+                                </div>
+                            </div>
+
+                            <button class="btn ghost" onclick="showPage('compatibility')">View Compatibility</button>
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <h3>Facilities</h3>
+                        <div class="chip-grid">
+                            <div class="chip"><i class="fa-solid fa-bed"></i> 3 Beds</div>
+                            <div class="chip"><i class="fa-solid fa-table"></i> 3 Study Tables</div>
+                            <div class="chip"><i class="fa-solid fa-fan"></i> Fan</div>
+                            <div class="chip"><i class="fa-solid fa-snowflake"></i> AC</div>
+                            <div class="chip"><i class="fa-solid fa-lightbulb"></i> Lights</div>
+                            <div class="chip"><i class="fa-solid fa-wifi"></i> Wi-Fi</div>
+                            <div class="chip"><i class="fa-solid fa-shower"></i> Attached Bathroom</div>
+                            <div class="chip"><i class="fa-solid fa-tree"></i> Balcony</div>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!-- ================= COMPATIBILITY ================= -->
+
+                <section id="compatibility" class="page">
+
+                    <div class="heading">
+                        <h2>Compatibility</h2>
+                        <p>Better matches, better living.</p>
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card compatibility-card">
+                            <h3>Compatibility Score</h3>
+                            <div class="percentage" id="compatScore">91%</div>
+                            <span class="status green" id="compatLabel">Good Match</span>
+                            <p class="small-text">Based on lifestyle preferences with Rahul Kumar.</p>
+                        </div>
+
+                        <div class="card">
+                            <h3>Comparison</h3>
+
+                            <div class="factor-row">
+                                <div class="factor-label"><span>Sleeping Time</span><b>95%</b></div>
+                                <div class="progress"><div style="width:95%"></div></div>
+                            </div>
+
+                            <div class="factor-row">
+                                <div class="factor-label"><span>Study Habits</span><b>92%</b></div>
+                                <div class="progress"><div style="width:92%"></div></div>
+                            </div>
+
+                            <div class="factor-row">
+                                <div class="factor-label"><span>Cleanliness</span><b>94%</b></div>
+                                <div class="progress"><div style="width:94%"></div></div>
+                            </div>
+
+                            <div class="factor-row">
+                                <div class="factor-label"><span>Noise Preference</span><b>88%</b></div>
+                                <div class="progress"><div style="width:88%"></div></div>
+                            </div>
+
+                            <div class="factor-row">
+                                <div class="factor-label"><span>Personality</span><b>86%</b></div>
+                                <div class="progress"><div style="width:86%"></div></div>
+                            </div>
+
+                            <div class="factor-row">
+                                <div class="factor-label"><span>Daily Routine</span><b>90%</b></div>
+                                <div class="progress"><div style="width:90%"></div></div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-lightbulb"></i> Suggestion</h3>
+                        <p class="small-text" id="compatSuggestion">
+                            Both students have similar study and sleeping schedules.
+                            Keeping a common quiet time can help avoid problems.
+                        </p>
+                    </div>
+
+                </section>
+
+
+                <!-- ================= COMPLAINTS ================= -->
+
+                <section id="complaints" class="page">
+
+                    <div class="heading heading-flex">
+                        <div>
+                            <h2>Complaints</h2>
+                            <p>Report and track hostel problems.</p>
+                        </div>
+                        <button class="btn" onclick="openComplaint()">
+                            <i class="fa-solid fa-plus"></i> New Complaint
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <div class="table-wrap">
+                        <table id="complaintTable">
+                            <tr>
+                                <th>ID</th>
+                                <th>Problem</th>
+                                <th>Category</th>
+                                <th>Status</th>
+                            </tr>
+
+                            <tr>
+                                <td>#1024</td>
+                                <td>Bathroom Cleaning</td>
+                                <td>Cleaning</td>
+                                <td><span class="status blue">In Progress</span></td>
+                            </tr>
+
+                            <tr>
+                                <td>#1018</td>
+                                <td>Study Room Light</td>
+                                <td>Electrical</td>
+                                <td><span class="status green">Resolved</span></td>
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
+
+                </section>
+
+                <!-- ================= VISITORS ================= -->
+
+                <section id="visitors" class="page">
+
+                    <div class="heading heading-flex">
+                        <div>
+                            <h2>Visitors</h2>
+                            <p>Register and track your visitors.</p>
+                        </div>
+                        <button class="btn" onclick="openVisitor()">
+                            <i class="fa-solid fa-plus"></i> Add Visitor
+                        </button>
+                    </div>
+
+                    <div class="card" id="visitorRequestCard">
+                        <h3><i class="fa-solid fa-bell"></i> Visitor Request</h3>
+                        <div class="visitor-request">
+                            <div class="profile">
+                                <div class="big-avatar">RS</div>
+                                <div>
+                                    <b>Raj Singh</b>
+                                    <p>is at the hostel gate and wants to visit you.</p>
+                                </div>
+                            </div>
+                            <div class="request-actions">
+                                <button class="btn" onclick="respondVisitor(true)">Allow</button>
+                                <button class="btn outline" onclick="respondVisitor(false)">Deny</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <div class="table-wrap">
+                        <table id="visitorTable">
+                            <tr>
+                                <th>Name</th>
+                                <th>Relation</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                            </tr>
+
+                            <tr>
+                                <td>Meena Devi</td>
+                                <td>Mother</td>
+                                <td>18 Aug</td>
+                                <td><span class="status green">Completed</span></td>
+                            </tr>
+                        </table>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!-- ================= MESS ================= -->
+
+                <section id="mess" class="page">
+
+                    <div class="heading">
+                        <h2>Mess</h2>
+                        <p>Good food, better routines.</p>
+                    </div>
+
+                    <div class="card">
+                        <div class="heading-flex">
+                            <h3>Today's Menu</h3>
+                            <button class="btn ghost" onclick="toggleWeeklyMenu()">
+                                <i class="fa-solid fa-calendar-week"></i> View Weekly Menu
+                            </button>
+                        </div>
+
+                        <div class="meal-grid">
+
+                            <div class="meal-card">
+                                <div class="meal-head"><i class="fa-solid fa-mug-hot"></i> Breakfast</div>
+                                <p class="meal-time">8:00 AM – 9:30 AM</p>
+                                <p class="meal-items">Poha • Bread • Milk • Fruit</p>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-head"><i class="fa-solid fa-bowl-rice"></i> Lunch</div>
+                                <p class="meal-time">12:30 PM – 2:00 PM</p>
+                                <p class="meal-items">Rice • Dal • Roti • Mixed Vegetables • Curd</p>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-head"><i class="fa-solid fa-cookie"></i> Evening Snacks</div>
+                                <p class="meal-time">4:30 PM – 5:30 PM</p>
+                                <p class="meal-items">Tea • Biscuits</p>
+                            </div>
+
+                            <div class="meal-card">
+                                <div class="meal-head"><i class="fa-solid fa-utensils"></i> Dinner</div>
+                                <p class="meal-time">7:30 PM – 9:00 PM</p>
+                                <p class="meal-items">Roti • Rice • Paneer • Dal • Salad</p>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="card" id="weeklyMenuCard" style="display:none;">
+                        <h3>Weekly Menu</h3>
+                        <div class="week-tabs" id="weekTabs"></div>
+                        <div id="weekMenuBody" class="week-menu-body"></div>
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card">
+                            <h3>Mess Timings</h3>
+                            <div class="row"><span>Breakfast</span><b>8:00 – 9:30 AM</b></div>
+                            <div class="row"><span>Lunch</span><b>12:30 – 2:00 PM</b></div>
+                            <div class="row"><span>Evening Snacks</span><b>4:30 – 5:30 PM</b></div>
+                            <div class="row"><span>Dinner</span><b>7:30 – 9:00 PM</b></div>
+                        </div>
+
+                        <div class="card">
+                            <h3>Mess Feedback</h3>
+                            <div class="feedback-options">
+                                <button class="feedback-btn" onclick="selectFeedback(this, 'Good')"><i class="fa-solid fa-face-smile"></i> Good</button>
+                                <button class="feedback-btn" onclick="selectFeedback(this, 'Average')"><i class="fa-solid fa-face-meh"></i> Average</button>
+                                <button class="feedback-btn" onclick="selectFeedback(this, 'Needs Improvement')"><i class="fa-solid fa-face-frown"></i> Needs Improvement</button>
+                            </div>
+                            <textarea id="messFeedbackText" rows="3" placeholder="Optional written feedback"></textarea>
+                            <button class="btn full" onclick="submitMessFeedback()">Submit Feedback</button>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= LOST & FOUND ================= -->
+
+                <section id="lostfound" class="page">
+
+                    <div class="heading">
+                        <h2>Lost &amp; Found</h2>
+                        <p>Lost something? Found something? Let's reunite it with its owner.</p>
+                    </div>
+
+                    <div class="card">
+
+                        <div class="lf-actions">
+                            <button class="btn" onclick="openReport('lost')"><i class="fa-solid fa-magnifying-glass"></i> Report Lost</button>
+                            <button class="btn outline" onclick="openReport('found')"><i class="fa-solid fa-box-open"></i> Report Found</button>
+                        </div>
+
+                        <div class="lf-controls">
+
+                            <input type="text" id="lfSearch" placeholder="Search items..." oninput="renderLostFound()">
+
+                            <select id="lfFilter" onchange="renderLostFound()">
+                                <option value="All">All</option>
+                                <option value="Lost">Lost</option>
+                                <option value="Found">Found</option>
+                                <option value="Returned">Returned</option>
+                            </select>
+
+                            <select id="lfCategory" onchange="renderLostFound()">
+                                <option value="All">All Categories</option>
+                                <option>Electronics</option>
+                                <option>Books / Notes</option>
+                                <option>Keys</option>
+                                <option>Clothing</option>
+                                <option>Bags</option>
+                                <option>Cards / ID</option>
+                                <option>Personal Items</option>
+                                <option>Room Items</option>
+                                <option>Other</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <div id="lfGrid" class="lf-grid"></div>
+
+                </section>
+
+
+                <!-- ================= NOTICES ================= -->
+
+                <section id="notices" class="page">
+
+                    <div class="heading">
+                        <h2>Hostel Notices</h2>
+                        <p>Official announcements from hostel administration.</p>
+                    </div>
+
+                    <div class="card">
+
+                        <div class="notice">
+                            <b>Room Inspection</b>
+                            <p>All rooms will be inspected on 25 August, 10 AM. Please keep rooms tidy.</p>
+                        </div>
+
+                        <div class="notice">
+                            <b>Cleanliness Drive</b>
+                            <p>A cleanliness drive is scheduled for Sunday in Block A.</p>
+                        </div>
+
+                        <div class="notice">
+                            <b>Water Supply Maintenance</b>
+                            <p>Water supply will be interrupted from 2 PM – 4 PM on Wednesday for maintenance.</p>
+                        </div>
+
+                        <div class="notice">
+                            <b>Hostel Rules Update</b>
+                            <p>Updated hostel rules regarding guest visiting hours are now in effect.</p>
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+                <!-- ================= NOTIFICATIONS ================= -->
+
+                <section id="notifications" class="page">
+
+                    <div class="heading heading-flex">
+                        <div>
+                            <h2>Notifications</h2>
+                            <p>All your alerts and updates in one place.</p>
+                        </div>
+                        <button class="btn ghost" onclick="markAllRead()">
+                            <i class="fa-solid fa-check-double"></i> Mark all as read
+                        </button>
+                    </div>
+
+                    <div class="card">
+                        <div class="notif-filters">
+                            <button class="filter-chip active" onclick="setNotifFilter('All', this)">All</button>
+                            <button class="filter-chip" onclick="setNotifFilter('Unread', this)">Unread</button>
+                            <button class="filter-chip" onclick="setNotifFilter('Visitors', this)">Visitors</button>
+                            <button class="filter-chip" onclick="setNotifFilter('Complaints', this)">Complaints</button>
+                            <button class="filter-chip" onclick="setNotifFilter('Mess', this)">Mess</button>
+                            <button class="filter-chip" onclick="setNotifFilter('Compatibility', this)">Compatibility</button>
+                            <button class="filter-chip" onclick="setNotifFilter('Lost & Found', this)">Lost &amp; Found</button>
+                        </div>
+                    </div>
+
+                    <div id="notifList" class="notif-list"></div>
+
+                </section>
+
+
+                <!-- ================= SETTINGS ================= -->
+
+                <section id="settings" class="page">
+
+                    <div class="heading">
+                        <h2>Settings</h2>
+                        <p>Manage your preferences and account.</p>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-paintbrush"></i> Appearance</h3>
+
+                        <div class="theme-options">
+
+                            <button class="theme-btn" id="themeLight" onclick="setTheme('light')">
+                                <i class="fa-solid fa-sun"></i> Light
+                            </button>
+
+                            <button class="theme-btn" id="themeDark" onclick="setTheme('dark')">
+                                <i class="fa-solid fa-moon"></i> Dark
+                            </button>
+
+                            <button class="theme-btn" id="themeSystem" onclick="setTheme('system')">
+                                <i class="fa-solid fa-display"></i> System Default
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h3><i class="fa-solid fa-bell"></i> Notifications</h3>
+
+                        <div class="row"><span>Enable Notifications</span>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+
+                        <div class="row"><span>Visitor Alerts</span>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+
+                        <div class="row"><span>Complaint Updates</span>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+
+                        <div class="row"><span>Mess Updates</span>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+
+                        <div class="row"><span>Lost &amp; Found Updates</span>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+
+                        <div class="row"><span>Important Notices</span>
+                            <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                        </div>
+                    </div>
+
+                    <div class="two">
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-user-shield"></i> Account</h3>
+                            <button class="btn ghost full" onclick="openChangePassword()">Change Password</button>
+                            <button class="btn outline full" onclick="logout()">Logout</button>
+                        </div>
+
+                        <div class="card">
+                            <h3><i class="fa-solid fa-lock"></i> Privacy</h3>
+
+                            <div class="row"><span>Profile Visible to Roommates</span>
+                                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            </div>
+
+                            <div class="row"><span>Allow Visitor Photo Capture</span>
+                                <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+
+            </div>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= MODAL ================= -->
+
+    <div id="modal" class="modal">
+
+        <div class="modal-box">
+
+            <button class="close" onclick="closeModal()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <h3 id="modalTitle">Title</h3>
+
+            <div id="modalBody"></div>
+
+        </div>
+
+    </div>
+
+
+    <!-- ================= TOAST ================= -->
+
+    <div id="toast" class="toast"></div>
+
+
+    <!-- JS -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
