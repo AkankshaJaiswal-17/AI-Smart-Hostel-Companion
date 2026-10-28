@@ -412,8 +412,6 @@
 
             <div class="content">
 
-            <div class="content">
-
 
                 <!-- ================= DASHBOARD ================= -->
 
@@ -665,68 +663,130 @@
 
                 <!-- ================= COMPATIBILITY ================= -->
 
-                <section id="compatibility" class="page">
+<section id="compatibility" class="page">
 
-                    <div class="heading">
-                        <h2>Compatibility</h2>
-                        <p>Better matches, better living.</p>
-                    </div>
+    <div class="heading">
+        <h2>Roommate Compatibility</h2>
+        <p>Better matches, better living.</p>
+    </div>
 
-                    <div class="two">
+    <!-- Lifestyle Preferences -->
+    <div class="card">
+        <h3><i class="fa-solid fa-sliders"></i> Your Lifestyle Preferences</h3>
+        <p class="small-text">
+            Select your preferences to compare your lifestyle with a potential roommate.
+        </p>
 
-                        <div class="card compatibility-card">
-                            <h3>Compatibility Score</h3>
-                            <div class="percentage" id="compatScore">91%</div>
-                            <span class="status green" id="compatLabel">Good Match</span>
-                            <p class="small-text">Based on lifestyle preferences with Rahul Kumar.</p>
-                        </div>
+        <form id="compatibilityForm">
 
-                        <div class="card">
-                            <h3>Comparison</h3>
+            <div class="two">
 
-                            <div class="factor-row">
-                                <div class="factor-label"><span>Sleeping Time</span><b>95%</b></div>
-                                <div class="progress"><div style="width:95%"></div></div>
-                            </div>
 
-                            <div class="factor-row">
-                                <div class="factor-label"><span>Study Habits</span><b>92%</b></div>
-                                <div class="progress"><div style="width:92%"></div></div>
-                            </div>
+                <div>
+                    <label for="prefSleep">Sleeping Schedule</label>
+                    <select id="prefSleep" required>
+                        <option value="early">Early sleeper</option>
+                        <option value="regular" selected>Regular schedule</option>
+                        <option value="late">Late sleeper</option>
+                    </select>
+                </div>
 
-                            <div class="factor-row">
-                                <div class="factor-label"><span>Cleanliness</span><b>94%</b></div>
-                                <div class="progress"><div style="width:94%"></div></div>
-                            </div>
+                <div>
+                    <label for="prefStudy">Study Preference</label>
+                    <select id="prefStudy" required>
+                        <option value="quiet" selected>Quiet environment</option>
+                        <option value="music">Music while studying</option>
+                        <option value="group">Group study</option>
+                    </select>
+                </div>
 
-                            <div class="factor-row">
-                                <div class="factor-label"><span>Noise Preference</span><b>88%</b></div>
-                                <div class="progress"><div style="width:88%"></div></div>
-                            </div>
+                <div>
+                    <label for="prefClean">Cleanliness</label>
+                    <select id="prefClean" required>
+                        <option value="very" selected>Very organised</option>
+                        <option value="moderate">Moderately organised</option>
+                        <option value="relaxed">Relaxed about tidiness</option>
+                    </select>
+                </div>
 
-                            <div class="factor-row">
-                                <div class="factor-label"><span>Personality</span><b>86%</b></div>
-                                <div class="progress"><div style="width:86%"></div></div>
-                            </div>
+                <div>
+                    <label for="prefNoise">Noise Preference</label>
+                    <select id="prefNoise" required>
+                        <option value="low" selected>Prefer quiet</option>
+                        <option value="medium">Some noise is okay</option>
+                        <option value="high">Comfortable with noise</option>
+                    </select>
+                </div>
 
-                            <div class="factor-row">
-                                <div class="factor-label"><span>Daily Routine</span><b>90%</b></div>
-                                <div class="progress"><div style="width:90%"></div></div>
-                            </div>
+                <div>
+                    <label for="prefRoutine">Daily Routine</label>
+                    <select id="prefRoutine" required>
+                        <option value="morning">Morning person</option>
+                        <option value="balanced" selected>Balanced routine</option>
+                        <option value="night">Night owl</option>
+                    </select>
+                </div>
 
-                        </div>
+            </div>
 
-                    </div>
+            <button type="submit" class="btn">
+                <i class="fa-solid fa-wand-magic-sparkles"></i>
+                Analyse Compatibility
+            </button>
 
-                    <div class="card">
-                        <h3><i class="fa-solid fa-lightbulb"></i> Suggestion</h3>
-                        <p class="small-text" id="compatSuggestion">
-                            Both students have similar study and sleeping schedules.
-                            Keeping a common quiet time can help avoid problems.
-                        </p>
-                    </div>
+        </form>
+    </div>
 
-                </section>
+    <!-- Compatibility Results -->
+    <div class="two">
+
+        <div class="card compatibility-card">
+            <h3>Compatibility Score</h3>
+
+            <div class="percentage" id="compatScore">--%</div>
+
+            <span class="status blue" id="compatLabel">
+                Awaiting Analysis
+            </span>
+
+            <p class="small-text" id="compatSummary">
+                Choose your preferences and analyse your compatibility.
+            </p>
+        </div>
+
+        <div class="card">
+            <h3><i class="fa-solid fa-chart-simple"></i> Lifestyle Comparison</h3>
+
+            <div id="compatFactors">
+                <p class="small-text">
+                    Your comparison results will appear here.
+                </p>
+            </div>
+
+            <div id = "roommateRecommendations"></div>
+        </div>
+
+    </div>
+
+    <!-- Suggestions -->
+    <div class="card">
+        <h3><i class="fa-solid fa-lightbulb"></i> Personalised Suggestions</h3>
+
+        <p class="small-text" id="compatSuggestion">
+            Analyse your preferences to receive suggestions for a more
+            comfortable roommate experience.
+        </p>
+    </div>
+
+    <p class="small-text">
+        Demo notice: Roommate profiles are sample data for demonstration.
+        Compatibility scores are estimates based on selected lifestyle
+        preferences and do not guarantee roommate suitability.
+    </p>
+
+</section>
+
+<!-- ================= END COMPATIBILITY ================= -->
 
 
                 <!-- ================= COMPLAINTS ================= -->
@@ -771,6 +831,7 @@
                     </div>
 
                 </section>
+
 
                 <!-- ================= VISITORS ================= -->
 
@@ -1055,23 +1116,18 @@
                         <div class="row"><span>Enable Notifications</span>
                             <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                         </div>
-
                         <div class="row"><span>Visitor Alerts</span>
                             <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                         </div>
-
                         <div class="row"><span>Complaint Updates</span>
                             <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                         </div>
-
                         <div class="row"><span>Mess Updates</span>
                             <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                         </div>
-
                         <div class="row"><span>Lost &amp; Found Updates</span>
                             <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                         </div>
-
                         <div class="row"><span>Important Notices</span>
                             <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                         </div>
@@ -1087,15 +1143,12 @@
 
                         <div class="card">
                             <h3><i class="fa-solid fa-lock"></i> Privacy</h3>
-
                             <div class="row"><span>Profile Visible to Roommates</span>
                                 <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                             </div>
-
                             <div class="row"><span>Allow Visitor Photo Capture</span>
                                 <label class="switch"><input type="checkbox" checked><span class="slider"></span></label>
                             </div>
-
                         </div>
 
                     </div>
@@ -1128,6 +1181,67 @@
 
     </div>
 
+    <!-- ================= LIVORA AI ASSISTANT ================= -->
+<div id="livoraChat">
+
+  <button id="livoraChatButton" type="button"
+          aria-label="Open Livora AI Assistant">
+    <i class="fa-solid fa-robot"></i>
+    Ask Livora AI
+  </button>
+
+  <section id="livoraChatWindow"
+           class="livora-chat-window"
+           hidden
+           aria-label="Livora AI Assistant">
+
+    <header class="livora-chat-header">
+      <div>
+        <h3>Livora AI Assistant</h3>
+        <p>Your hostel companion</p>
+      </div>
+
+      <button id="livoraChatClear" type="button" aria-label="Clear chat" title="Clear chat">
+  <i class="fa-solid fa-rotate-left"></i>
+      </button>
+
+      <button id="livoraChatClose" type="button"
+              aria-label="Close chat">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+    </header>
+
+    <div id="livoraChatMessages"
+         class="livora-chat-messages"
+         aria-live="polite">
+      <div class="ai-message">
+        Hi! I'm Livora AI. How can I help you with your hostel-related questions?
+      </div>
+    </div>
+
+    <div id="livoraQuickReplies" class="livora-quick-replies">
+  <button type="button" data-question="What is the mess timing?">🍽️ Mess & Food</button>
+  <button type="button" data-question="I want to file a complaint">📝 Complaints</button>
+  <button type="button" data-question="How can I find a roommate?">🏠 Roommate Help</button>
+  <button type="button" data-question="How do I register a visitor?">👥 Visitors</button>
+</div>
+
+    <form id="livoraChatForm">
+      <input id="livoraChatInput"
+             type="text"
+             placeholder="Ask about your hostel..."
+             aria-label="Type your question"
+             required>
+
+      <button type="submit" aria-label="Send message">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </form>
+
+  </section>
+</div>
+<!-- ================= END LIVORA AI ASSISTANT ================= -->
+
 
     <!-- ================= TOAST ================= -->
 
@@ -1135,7 +1249,6 @@
 
 
     <!-- JS -->
-
     <script src="script.js"></script>
 
 </body>
